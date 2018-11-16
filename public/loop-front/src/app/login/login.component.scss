@@ -2,9 +2,8 @@
 
 .center {
     width: 400px;
-    background-color: black;
-    color: white;
     position: absolute;
+    display: table;
     left: 0;
     right: 0;
     top: 0;
@@ -15,9 +14,11 @@
     padding-top: 50px;
     padding-left: 20px;
     padding-right: 20px;
-    padding-bottom:	50px;
-    border: 2px solid black;
-    display: table;
+    padding-bottom: 50px;
+
+    background-color: black;
+    color: white;
+    border: 2px solid black;    
 }
 
 .content{
@@ -25,7 +26,7 @@
     vertical-align: middle;
 }
 
-.center > .content > h3{
+.center > .content > h3 {
 	line-height: 1.1;
 }
 
@@ -38,8 +39,6 @@
 
 .sign-in-btn{
     width: 100%;
-    font-family: 'Segoe UI';
-    font-weight: bolder;
     font-size: 16px;
     text-align: center;
     text-decoration: none;
@@ -50,7 +49,32 @@
     cursor: pointer;
 }
 
-.sign-in-btn:hover {
+.sign-in-btn:hover{
     background-color: white;
     color: black;
+}
+
+#forgot-pass{
+    display: block;
+    text-align: right;
+}
+#forgot-pass > a{
+
+    color: white;
+}
+
+#forgot-pass > a:hover{
+    color: white;
+}
+
+footer {
+   position: fixed;
+   bottom: 0px;
+   width: 100%;
+   padding-top: 3px;
+   padding-bottom: 3px;
+   
+   background: #262626;
+   text-align: center;
+   color: white;
 }

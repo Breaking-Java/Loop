@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class LoginComponent implements OnInit {
 
   constructor() {
-  	document.body.style.background = 'rgb(0,0,0)';
+  	document.body.style.background = 'rgb(15,15,15)';
   }
 
   ngOnInit() {
