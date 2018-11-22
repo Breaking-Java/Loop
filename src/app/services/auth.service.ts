@@ -1,20 +1,31 @@
 import {Injectable} from '@angular/core';
 import { Observable } from 'rxjs';
 import {HttpClient} from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
+
 export class AuthService {
   token: string;
   user: any;
+  isLoggedIn: boolean;
 
   constructor(public http: HttpClient) {
     this.token = null;
+    this.isLoggedIn = false;
   }
+
   login(credentials): Observable<boolean> {
+    console.log("Llamando a login")
+    console.log(credentials)
     return new Observable<boolean>(observer => {
-      this.http.post('http://breakingjava.tk:8080/login', credentials).subscribe(data => {
+      this.http.post(environment.url + 'login', credentials).subscribe(data => {
+      console.log(data);
        this.user = data;
        this.token = this.user.id;
+       this.isLoggedIn = true;
         observer.next(true);
         observer.complete();
       }, _err => {
@@ -25,12 +36,13 @@ export class AuthService {
   }
 
   isAuthenticated(): boolean {
-    return !!this.token;
+    return this.isLoggedIn;
   }
   getToken() {
     return this.token;
   }
   logout(){
-    return this.http.post('http://localhost:3000/api/logout?access_token=' + this.token, {});
+    this.isLoggedIn = false;
+    return this.http.post(environment.url + 'logout?access_token=' + this.token, {});
   }
 }

@@ -3,18 +3,20 @@
 		<img class="img-fluid" src="assets/img/logo1.png">
 		<h3>Sign In</h3>
 		<hr>
-		<form>
+		<form (ngSubmit)="onSubmit()" #loginForm="ngForm">
 			<div class="left">
 				<div class="form-group">
 					<label>Email address</label>
-					<input type="email" class="form-control" id="input-email" placeholder="Enter email">
+					<input type="email" class="form-control" id="input-email" placeholder="Enter email" required [(ngModel)]="model.email" name="email"
+               #email="ngModel">
 				</div>
 				<div class="form-group">
 					<label>Password</label>
-					<input type="password" class="form-control" id="input-password" placeholder="Password">
+					<input type="password" class="form-control" id="input-password" placeholder="Password" required [(ngModel)]="model.password" name="pass"
+               #pass="ngModel">
 					<small id="forgot-pass"><a href="#">Forgot password?</a></small>
 				</div>
-				<button class="classic-btn">Sign In</button>
+				<button class="classic-btn" type="submit">Sign In</button>
 			</div>
 			<div class="middle">
 				<p id="hr"><span>OR</span></p>

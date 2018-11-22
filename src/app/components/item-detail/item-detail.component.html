@@ -1,25 +1,20 @@
-<div class="detail" *ngIf="item">
-  <h2>{{item.name}}</h2>
-  <div class="">
-    <span>{{item.year}}</span>
-    <i class="fas fa-star" *ngFor="let star of stars;"></i>
-  </div>
-  <div class="content">
-    <p>{{item.overview}}</p>
-    <img src="https://upload.wikimedia.org/wikipedia/en/8/8a/Dark_Knight.jpg" alt="">
-  </div>
-</div>
-
-<div class="card text-center">
+<div class="card text-center" *ngIf="item">
   <div class="card-header">
-    {{item.name}}
+    <span>{{item.year}}</span>
   </div>
   <div class="card-body">
-    <h5 class="card-title">Special title treatment</h5>
-    <p class="card-text">{{item.overview}}</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <h5 class="card-title">{{item.name}}</h5>
+    <div class="row">
+      <div class="col-6">
+        <img class="img-fluid img-thumbnail" src="https://upload.wikimedia.org/wikipedia/en/8/8a/Dark_Knight.jpg" alt="">
+      </div>
+      <div class="col-6">
+        <p class="card-text">{{item.overview}}</p>
+      </div>
+    </div>
+    <a href="#" class="btn btn-primary">Ver</a>
   </div>
   <div class="card-footer text-muted">
-    2 days ago
+    <i class="fas fa-star" *ngFor="let star of stars;"></i>
   </div>
 </div>

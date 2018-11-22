@@ -7,6 +7,16 @@ import { LoginComponent } from './components/login/login.component';
 import { ItemDetailComponent } from './components/item-detail/item-detail.component';
 import { CatalogComponent } from './components/catalog/catalog.component';
 import { CatalogPageComponent } from './components/catalog-page/catalog-page.component';
+import { SignupComponent } from './components/signup/signup.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { PassResetComponent } from './components/pass-reset/pass-reset.component';
+import { PassForgotComponent } from './components/pass-forgot/pass-forgot.component';
+import { AuthService } from './services/auth.service';
+import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
+import { PageerrorComponent } from './components/pageerror/pageerror.component';
+import { AuthGuard } from './guards/auth.guard';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -14,14 +24,25 @@ import { CatalogPageComponent } from './components/catalog-page/catalog-page.com
     LoginComponent,
     ItemDetailComponent,
     CatalogComponent,
-    CatalogPageComponent
+    CatalogPageComponent,
+    SignupComponent,
+    NavbarComponent,
+    FooterComponent,
+    PassResetComponent,
+    PassForgotComponent,
+    PagenotfoundComponent,
+    PageerrorComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
-    FormsModule
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    AuthService,
+    AuthGuard,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
