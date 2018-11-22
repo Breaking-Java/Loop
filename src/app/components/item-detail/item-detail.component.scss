@@ -1,0 +1,31 @@
+.detail{
+  background-color: darkgray;
+  max-width: 100vw;
+}
+
+.detail h2{
+  font-weight: bolder;
+  font-style: italic;
+}
+
+.detail i{
+  color: orange;
+}
+
+.detail span{
+  font-style: oblique;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.detail p {
+  padding-top: 10px;
+  text-align: justify;
+  width: 50%;
+  float: left;
+}
+
+.detail img{
+  width: auto;
+  float: left;
+}
