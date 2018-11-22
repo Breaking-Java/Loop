@@ -6,10 +6,12 @@ import { ItemDetailComponent } from './components/item-detail/item-detail.compon
 import { CanActivateTeam } from './guards/canactivateteam.guard';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full'},
+  //{ path: '', redirectTo: 'login', pathMatch: 'full'},
+  // User
   { path: 'login', component: LoginComponent },
   { path: 'catalog', component: CatalogPageComponent, canActivate: [CanActivateTeam]},
-  { path: 'detail', component: ItemDetailComponent, canActivate: [CanActivateTeam] }
+  // Catalog and content
+  { path: 'detail', component: ItemDetailComponent }
 ];
 
 @NgModule({

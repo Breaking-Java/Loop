@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+.classic-btn{
+    width: 100%;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    transition: 0.5s all;
+    border: 1px solid white;
+    background-color: black;
+    padding: 12px 50px;
+    cursor: pointer;
+}
+
+.classic-btn:hover{
+    background-color: white;
+    color: black;
+}
