@@ -7,8 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
+  model:any;
+
   constructor() {
-  	document.body.style.background = 'rgb(15,15,15)';
+    this.model = {};
   }
 
   ngOnInit() {

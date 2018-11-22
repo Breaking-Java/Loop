@@ -1,9 +1,5 @@
-
 import {Injectable} from '@angular/core';
 import { Observable } from 'rxjs';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/observable/throw';
 import {HttpClient} from '@angular/common/http';
 
 @Injectable()
@@ -16,12 +12,12 @@ export class AuthService {
   }
   login(credentials): Observable<boolean> {
     return new Observable<boolean>(observer => {
-      this.http.post('http://localhost:3000/api/Users/login', credentials).subscribe(data => {
+      this.http.post('http://breakingjava.tk:8080/login', credentials).subscribe(data => {
        this.user = data;
        this.token = this.user.id;
         observer.next(true);
         observer.complete();
-      }, err => {
+      }, _err => {
         observer.next(false);
         observer.complete();
       });

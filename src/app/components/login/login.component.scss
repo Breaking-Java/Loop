@@ -1,28 +1,21 @@
 @charset "utf-8";
-
 .center {
-    width: 400px;
-    position: absolute;
-    display: table;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
+    width: 100%;
+    height: 100%;
+    min-height: 1024px;
     margin: auto;
-    max-width: 100%;
-    padding-top: 10px;
+    padding-top: 40px;
     padding-left: 20px;
     padding-right: 20px;
-    padding-bottom: 10px;
-
+    padding-bottom: 100px;
     background-color: black;
-    color: white;
 }
 
 .content{
-	display: table-cell;
-    vertical-align: middle;
-    background-color: black;
+    width: 30%;
+    height: 50%;
+    margin: auto;
+    color: white;
 }
 
 .center > .content > h3 {
@@ -31,32 +24,14 @@
 
 .center > .content > hr{
     display: block;
-    width: 100%;
-    margin-left:0;
+    margin-left: 0;
     margin-top: 0.5em;
     margin-bottom: 0.5em;
     border-style: inset;
     border-width: 1px;
 }
 
-.sign-in-btn{
-    width: 100%;
-    font-size: 16px;
-    text-align: center;
-    text-decoration: none;
-    color: white;
-    border: 2px solid white;
-    background-color: black;
-    padding: 12px 50px;
-    cursor: pointer;
-}
-
-.sign-in-btn:hover{
-    background-color: white;
-    color: black;
-}
-
-#forgot-pass{
+#forgot-pass, #register{
     display: block;
     text-align: right;
 }
@@ -74,7 +49,7 @@
     margin-top: 30px;
 }
 
-#hr:before {
+#hr::before {
     content: "";
     display: block;
     position: absolute;
@@ -92,29 +67,30 @@
     z-index: 5;
 }
 
-#register{
-    display: block;
-    text-align: center;
-}
+@media all and (max-width: 895px){
+    .center {
+        display: table;
+        width: 100%;
+    }
 
-footer {
-    position: absolute;
-    bottom: 0px;
-    width: 100%;
-    padding-top: 5px;
-    padding-bottom: 5px;
-
-    color: white;
-    font-size: 15px;
-    text-align: center;
-    background-color: #262626;
+    .content {
+        display: table-cell;
+        vertical-align: middle;
+    }
 }
 
 @media all and (max-width: 896px){
-    .center{
-        position:relative;
+    .center {
         width: 100%;
-        height: 414px;
+        min-height: 414px;
+        padding-top: 0;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-bottom: 100px;
+    }
+
+    .content{
+        width: 100%;
     }
 
     .center > .content > img {
@@ -131,13 +107,11 @@ footer {
     .left{
         float: left;
         width: 40%;
-        height: 100%;
     }
 
     .middle{
         float: left;
         width: 20%;
-        height: 100%;
         padding-top: 85px;
         padding-left: 10px;
         padding-right: 10px;
@@ -147,15 +121,19 @@ footer {
     .right{
         float: left;
         width: 40%;
-        height: 100%;
         padding-top: 100px;
         padding-left: 10px;
         padding-right: 10px;
-        padding-bottom: 90px;
+        padding-bottom: 71px;
     }
 
-    footer {
-        position: static;
-        width: 100%;
+    .right > .classic-btn{
+        padding-left: 2px;
+        padding-right: 2px;
     }
+
+    .right > #register{
+        font-size: 0.7em;
+    }
+
 }
