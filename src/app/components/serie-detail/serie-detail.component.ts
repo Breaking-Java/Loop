@@ -12,6 +12,7 @@ export class SerieDetailComponent implements OnInit {
 
   serie;
   stars: Array<number>;
+  episodes;
 
   constructor(private route: ActivatedRoute, private contentService: ContentService, private location: Location) { }
 
@@ -30,6 +31,12 @@ export class SerieDetailComponent implements OnInit {
       for (let i = 0; i < j; i++) {
         this.stars.push(1);
       }
+    });
+
+    this.contentService.getEpisodes(id)
+    .subscribe(data => {
+      this.episodes = data;
+      console.log(this.episodes);
     });
   }
   goBack(): void {

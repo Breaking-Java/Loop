@@ -24,8 +24,8 @@ export class ContentService {
     return this.http.get(environment.url + 'home/series', {headers: new HttpHeaders().set('Authorization','Bearer ' + this.auth.getToken())});
   }
 
-  getEpisodes(serie){
-    return this.http.get(environment.url + 'home/episodes/'+serie, {headers: new HttpHeaders().set('Authorization','Bearer ' + this.auth.getToken())});
+  getEpisodes(serieId){
+    return this.http.get(environment.url + 'home/episodes/'+serieId, {headers: new HttpHeaders().set('Authorization','Bearer ' + this.auth.getToken())});
   }
 
   getMovie(id){

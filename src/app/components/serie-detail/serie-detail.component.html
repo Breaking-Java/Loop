@@ -12,9 +12,20 @@
         <p class="card-text">{{serie.Overview}}</p>
       </div>
     </div>
-    <a class="btn btn-primary" href="https://breakingjava.tk/{{serie.Path}}" target="_blank" rel="noopener noreferrer">Ver</a>
   </div>
   <div class="card-footer text-muted">
     <i class="fas fa-star" *ngFor="let star of stars;"></i>
+  </div>
+</div>
+<div class="card text-center" *ngFor="let episode of episodes; let i = index">
+  <div class="card-header">
+    <span>Episodio {{i}}</span>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">{{episode.Name}}</h5>
+    <p class="card-text">{{episode.Overview}}</p>
+  </div>
+  <div class="card-footer text-muted">
+    <a class="btn btn-primary" href="https://breakingjava.tk/{{episode.Path}}" target="_blank" rel="noopener noreferrer">Ver</a>
   </div>
 </div>
