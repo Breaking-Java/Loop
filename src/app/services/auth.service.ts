@@ -26,6 +26,8 @@ export class AuthService {
       console.log(data);
        this.user = data;
        this.token = this.user.token;
+       console.log("Token");
+       console.log(this.token);
        this.isLoggedIn = true;
         observer.next(true);
         observer.complete();
