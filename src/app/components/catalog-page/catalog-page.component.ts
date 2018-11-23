@@ -9,7 +9,7 @@ import { ContentService } from 'src/app/services/content.service';
 export class CatalogPageComponent implements OnInit {
 
   movies;
-
+  series;
   constructor(private contentService: ContentService) { }
 
   ngOnInit() {
@@ -20,7 +20,16 @@ export class CatalogPageComponent implements OnInit {
       console.log(err);
       // Error de conexion
       alert('Error de conexion');
-});
+    });
+
+    this.contentService.getAllSeries().subscribe(data => {
+      console.log(data);
+      this.series = data;
+    }, err => {
+      console.log(err);
+      // Error de conexion
+      alert('Error de conexion');
+    });
   }
 
 }

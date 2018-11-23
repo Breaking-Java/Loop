@@ -1,18 +1,18 @@
-<div class="card text-center" *ngIf="item">
+<div class="card text-center" *ngIf="movie">
   <div class="card-header">
-    <span>{{item.year}}</span>
+    <span>{{movie.Year}}</span>
   </div>
   <div class="card-body">
-    <h5 class="card-title">{{item.name}}</h5>
+    <h5 class="card-title">{{movie.Name}}</h5>
     <div class="row">
       <div class="col-6">
-        <img class="img-fluid img-thumbnail" src="https://upload.wikimedia.org/wikipedia/en/8/8a/Dark_Knight.jpg" alt="">
+        <img class="img-fluid img-thumbnail" [src]="movie.Poster" alt="">
       </div>
       <div class="col-6">
-        <p class="card-text">{{item.overview}}</p>
+        <p class="card-text">{{movie.Overview}}</p>
       </div>
     </div>
-    <a href="#" class="btn btn-primary">Ver</a>
+    <a class="btn btn-primary" href="https://breakingjava.tk/{{movie.Path}}" target="_blank" rel="noopener noreferrer">Ver</a>
   </div>
   <div class="card-footer text-muted">
     <i class="fas fa-star" *ngFor="let star of stars;"></i>

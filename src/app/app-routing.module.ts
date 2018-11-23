@@ -8,6 +8,8 @@ import { CatalogPageComponent } from './components/catalog-page/catalog-page.com
 import { ItemDetailComponent } from './components/item-detail/item-detail.component';
 import { AuthGuard } from './guards/auth.guard';
 import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
+import { PlaymediaComponent } from './components/playmedia/playmedia.component';
+import { SerieDetailComponent } from './components/serie-detail/serie-detail.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -18,7 +20,9 @@ const routes: Routes = [
   { path: 'signup', component: SignupComponent },
   { path: 'catalog', component: CatalogPageComponent, canActivate: [AuthGuard]},
   // Catalog and content
-  { path: 'detail', component: ItemDetailComponent },
+  { path: 'detail/:id', component: ItemDetailComponent },
+  { path: 'serie-detail/:id', component: SerieDetailComponent },
+  { path: 'play/:id', component: PlaymediaComponent },
   // pagenotfound
   { path: '**', component: PagenotfoundComponent, pathMatch: 'full' },
 ];

@@ -18,6 +18,8 @@ import { PageerrorComponent } from './components/pageerror/pageerror.component';
 import { AuthGuard } from './guards/auth.guard';
 import { HttpClientModule } from '@angular/common/http';
 import { PlaymediaComponent } from './components/playmedia/playmedia.component';
+import { SerieDetailComponent } from './components/serie-detail/serie-detail.component';
+import { CatalogSeriesComponent } from './components/catalog-series/catalog-series.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,7 @@ import { PlaymediaComponent } from './components/playmedia/playmedia.component';
     LoginComponent,
     ItemDetailComponent,
     CatalogComponent,
+    CatalogSeriesComponent,
     CatalogPageComponent,
     SignupComponent,
     NavbarComponent,
@@ -33,7 +36,8 @@ import { PlaymediaComponent } from './components/playmedia/playmedia.component';
     PassForgotComponent,
     PagenotfoundComponent,
     PageerrorComponent,
-    PlaymediaComponent
+    PlaymediaComponent,
+    SerieDetailComponent
   ],
   imports: [
     BrowserModule,

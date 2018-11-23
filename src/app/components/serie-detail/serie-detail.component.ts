@@ -4,29 +4,29 @@ import { ContentService } from 'src/app/services/content.service';
 import { Location } from '@angular/common';
 
 @Component({
-  selector: 'app-item-detail',
-  templateUrl: './item-detail.component.html',
-  styleUrls: ['./item-detail.component.scss']
+  selector: 'app-serie-detail',
+  templateUrl: './serie-detail.component.html',
+  styleUrls: ['./serie-detail.component.scss']
 })
-export class ItemDetailComponent implements OnInit {
+export class SerieDetailComponent implements OnInit {
 
-  movie;
+  serie;
   stars: Array<number>;
 
   constructor(private route: ActivatedRoute, private contentService: ContentService, private location: Location) { }
 
   ngOnInit(): void {
-    this.getMovie();
+    this.getSerie();
   }
 
-  getMovie(): void {
+  getSerie(): void {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.contentService.getMovie(id)
+    this.contentService.getSerie(id)
     .subscribe(data => {
-      this.movie = data[0];
-      console.log(this.movie);
+      this.serie = data[0];
+      console.log(this.serie);
       this.stars = new Array();
-      let j = Number(this.movie.Rating);
+      let j = Number(this.serie.Rating);
       for (let i = 0; i < j; i++) {
         this.stars.push(1);
       }

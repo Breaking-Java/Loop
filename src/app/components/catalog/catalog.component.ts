@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-catalog',
@@ -7,18 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CatalogComponent implements OnInit {
 
-  items: any;
+  @Input() items;
 
   constructor() {
-    this.items = [
-      {
-        name: 'Batman',
-        rating: '7.8'
-      },{
-        name: 'Calamardo',
-        rating: '7.8'
-      }
-    ];
   }
 
   ngOnInit() {

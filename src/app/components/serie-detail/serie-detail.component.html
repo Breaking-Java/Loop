@@ -1,0 +1,20 @@
+<div class="card text-center" *ngIf="serie">
+  <div class="card-header">
+    <span>{{serie.Year}}</span>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">{{serie.Name}}</h5>
+    <div class="row">
+      <div class="col-6">
+        <img class="img-fluid img-thumbnail" [src]="serie.Poster" alt="">
+      </div>
+      <div class="col-6">
+        <p class="card-text">{{serie.Overview}}</p>
+      </div>
+    </div>
+    <a class="btn btn-primary" href="https://breakingjava.tk/{{serie.Path}}" target="_blank" rel="noopener noreferrer">Ver</a>
+  </div>
+  <div class="card-footer text-muted">
+    <i class="fas fa-star" *ngFor="let star of stars;"></i>
+  </div>
+</div>
