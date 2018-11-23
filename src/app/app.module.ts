@@ -16,8 +16,8 @@ import { AuthService } from './services/auth.service';
 import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
 import { PageerrorComponent } from './components/pageerror/pageerror.component';
 import { AuthGuard } from './guards/auth.guard';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { TokenInterceptor } from './guards/tokeninterceptor';
+import { HttpClientModule } from '@angular/common/http';
+import { PlaymediaComponent } from './components/playmedia/playmedia.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +32,8 @@ import { TokenInterceptor } from './guards/tokeninterceptor';
     PassResetComponent,
     PassForgotComponent,
     PagenotfoundComponent,
-    PageerrorComponent
+    PageerrorComponent,
+    PlaymediaComponent
   ],
   imports: [
     BrowserModule,
@@ -42,12 +43,7 @@ import { TokenInterceptor } from './guards/tokeninterceptor';
   ],
   providers: [
     AuthService,
-    AuthGuard,
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: TokenInterceptor,
-      multi: true
-    }
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

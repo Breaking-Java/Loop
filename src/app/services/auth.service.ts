@@ -25,7 +25,7 @@ export class AuthService {
       this.http.post(environment.url + 'login', credentials).subscribe(data => {
       console.log(data);
        this.user = data;
-       this.token = this.user.id;
+       this.token = this.user.token;
        this.isLoggedIn = true;
         observer.next(true);
         observer.complete();
