@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ContentService } from 'src/app/services/content.service';
 
 @Component({
   selector: 'app-catalog-page',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CatalogPageComponent implements OnInit {
 
-  constructor() { }
+  movies;
+
+  constructor(private contentService: ContentService) { }
 
   ngOnInit() {
+    this.contentService.getAllMovies().subscribe(data => {
+      console.log(data);
+      this.movies = data;
+    }, err => {
+      console.log(err);
+      // Error de conexion
+      alert('Error de conexion');
+});
   }
 
 }

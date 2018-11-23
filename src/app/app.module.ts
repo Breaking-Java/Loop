@@ -16,7 +16,8 @@ import { AuthService } from './services/auth.service';
 import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
 import { PageerrorComponent } from './components/pageerror/pageerror.component';
 import { AuthGuard } from './guards/auth.guard';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TokenInterceptor } from './guards/tokeninterceptor';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,11 @@ import { HttpClientModule } from '@angular/common/http';
   providers: [
     AuthService,
     AuthGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })

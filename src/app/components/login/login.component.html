@@ -7,24 +7,24 @@
 			<div class="left">
 				<div class="form-group">
 					<label>Email address</label>
-					<input type="email" class="form-control" id="input-email" placeholder="Enter email" required [(ngModel)]="model.email" name="email"
-               #email="ngModel">
+					<input type="email" class="form-control" id="input-email" placeholder="Enter email" required [(ngModel)]="model.email" name="email" #email="ngModel">
 				</div>
 				<div class="form-group">
 					<label>Password</label>
 					<input type="password" class="form-control" id="input-password" placeholder="Password" required [(ngModel)]="model.password" name="pass"
                #pass="ngModel">
-					<small id="forgot-pass"><a href="#">Forgot password?</a></small>
+					<small id="forgot-pass"><a routerLink="/pass-forgot" routerLinkActive="active">Forgot password?</a></small>
 				</div>
 				<button class="classic-btn" type="submit">Sign In</button>
 			</div>
 			<div class="middle">
 				<p id="hr"><span>OR</span></p>
 			</div>
-			<div class="right">
-				<button class="classic-btn">Log In With Facebook</button>
-				<small id="register">Don't have an account? <a href="#"><b>REGISTER HERE</b></a></small>
-			</div>
+
 		</form>
+		<div class="right">
+			<button class="classic-btn" ng-click='facebook()'>Log In With Facebook</button>
+			<small id="register">Don't have an account? <a routerLink="/signup" routerLinkActive="active"><b>REGISTER HERE</b></a></small>
+		</div>
 	</div>
 </div>

@@ -18,6 +18,10 @@ export class LoginComponent implements OnInit {
     this.login();
   }
 
+  facebook(){
+    
+  }
+
   login() {
     const credentials = {email: this.model.email, password: this.model.password};
     this.auth.login(credentials).subscribe(data => {
@@ -27,7 +31,7 @@ export class LoginComponent implements OnInit {
         // Mostrar mensaje datos incorrectos
         console.log('Incorrecto');
       }
-    }, err => {
+    }, _err => {
       // Mostrar mensaje error de conexion
     });
 }

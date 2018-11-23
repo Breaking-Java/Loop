@@ -7,7 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CatalogComponent implements OnInit {
 
-  constructor() { }
+  items: any;
+
+  constructor() {
+    this.items = [
+      {
+        name: 'Batman',
+        rating: '7.8'
+      },{
+        name: 'Calamardo',
+        rating: '7.8'
+      }
+    ];
+  }
 
   ngOnInit() {
   }

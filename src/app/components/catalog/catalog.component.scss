@@ -1,11 +1,6 @@
-.fila{
-  width: 100%;
-}
-
-.pelicula{
+.card{
+  max-width: 200px;
   float: left;
-  width: 100px;
-  min-width: 250px;
-  background-color: green;
-  min-height: 200px;
+  margin-left: 10px;
+  margin-bottom: 10px;
 }
