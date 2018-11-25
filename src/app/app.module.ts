@@ -20,6 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { PlaymediaComponent } from './components/playmedia/playmedia.component';
 import { SerieDetailComponent } from './components/serie-detail/serie-detail.component';
 import { CatalogSeriesComponent } from './components/catalog-series/catalog-series.component';
+import { UserSettingsComponent } from './components/user-settings/user-settings.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { CatalogSeriesComponent } from './components/catalog-series/catalog-seri
     PagenotfoundComponent,
     PageerrorComponent,
     PlaymediaComponent,
-    SerieDetailComponent
+    SerieDetailComponent,
+    UserSettingsComponent
   ],
   imports: [
     BrowserModule,
