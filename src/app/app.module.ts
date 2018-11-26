@@ -20,6 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { PlaymediaComponent } from './components/playmedia/playmedia.component';
 import { SerieDetailComponent } from './components/serie-detail/serie-detail.component';
 import { CatalogSeriesComponent } from './components/catalog-series/catalog-series.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { CatalogSeriesComponent } from './components/catalog-series/catalog-seri
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [
     AuthService,
