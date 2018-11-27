@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
+import {Title} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,9 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   model:any;
-  constructor(private router: Router, private auth:AuthService) {
+  constructor(private router: Router, private auth:AuthService, private titleService:Title) {
+    this.titleService.setTitle("Loop | Login");
+
     this.model = {};
   }
 

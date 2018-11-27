@@ -10,6 +10,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
 import { PlaymediaComponent } from './components/playmedia/playmedia.component';
 import { SerieDetailComponent } from './components/serie-detail/serie-detail.component';
+import { UserSettingsComponent } from './components/user-settings/user-settings.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'pass-reset', component: PassResetComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'catalog', component: CatalogPageComponent, canActivate: [AuthGuard]},
+  { path: 'user-settings', component: UserSettingsComponent},
   // Catalog and content
   { path: 'detail/:id', component: ItemDetailComponent },
   { path: 'serie-detail/:id', component: SerieDetailComponent },
