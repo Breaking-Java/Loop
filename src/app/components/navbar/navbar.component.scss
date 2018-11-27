@@ -1,3 +1,4 @@
+// Setting the header
 header{
   width: 100%;
   position: fixed;
@@ -5,6 +6,7 @@ header{
   top: 0;
 }
 
+// Customize the search input
 input[type=search] {
   background: white url("/assets/img/search-icon.png") no-repeat 10px center;
   border: solid 1px #ccc;
@@ -14,16 +16,17 @@ input[type=search] {
   transition: all .5s;
 }
 
+// Customize the extended search input
 #extended-search input[type=search] {
   width: 15px;
   padding-left: 10px;
   cursor: pointer;
 }
 
+// Extended search input events
 #extended-search input[type=search]:hover {
   background-color: #ecf0f1;
 }
-
 #extended-search input[type=search]:focus {
   width: 230px;
   padding-left: 32px;
@@ -31,7 +34,7 @@ input[type=search] {
   background-color: #fff;
   cursor: auto;
 }
-
+// Dropdown options to the right
 .ml-auto .dropdown-menu {
     left: auto !important;
     right: 0px;
