@@ -15,17 +15,10 @@ export class UserService {
   }
 
 
-  getUser()
-  {
-    return this.http.get(environment.url + 'home/user', {headers: new HttpHeaders().set('Authorization','Bearer ' + this.auth.getToken())});
+
+  getUser(id){
+    return this.http.get(environment.url + 'home/movies/' + id, {headers: new HttpHeaders().set('Authorization','Bearer ' + this.auth.getToken())});
   }
 
-   deleteUser() 
-   {
-    return this.http.delete(environment.url + 'home/user', {headers: new HttpHeaders().set('Authorization','Bearer ' + this.auth.getToken())});
-  }
-   updateUser() 
-   {
-    return this.http.patch(environment.url + 'home/user', {headers: new HttpHeaders().set('Authorization','Bearer ' + this.auth.getToken())});
-  }
+
 }

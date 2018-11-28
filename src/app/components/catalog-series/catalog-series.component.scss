@@ -4,3 +4,45 @@
   margin-left: 10px;
   margin-bottom: 10px;
 }
+
+.card{
+  max-width: 200px;
+  float: left;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  background-color:black;
+}
+
+.card > .card-body{
+	color:white;
+}
+.card > .card-body > h5{
+	font-weight: bold;
+	font-size: 2em;
+	text-align: center;
+}
+.card > .card-body > card.text{
+	padding-top:5%;
+	text-align: justify;
+  background-color:black;
+}
+.card > .card-body > .card-footer > #checked{
+	color: orange;
+}
+.card > .card-body > .classic-btn{
+    width: 20%;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    transition: 0.5s all;
+    border: 10% solid white;
+    background-color: black;
+    padding: 12px 50px;
+    cursor: pointer;
+}
+
+.card > .card-body > .classic-btn:hover{
+    background-color: white;
+    color: black;
+}

@@ -16,10 +16,8 @@
 						</div>
 					</div>
 				
-
-				<div class="form-group col-md-6">
-	
-						<div class="form-group" [ngClass]="{ 'has-error': signUpForm.submitted && !surname.valid }">
+			<div class="form-group col-md-6">
+							<div class="form-group" [ngClass]="{ 'has-error': signUpForm.submitted && !surname.valid }">
 							<label for="surname">Surname:</label>
 							<input type="text" class="form-control" id="input-surname" placeholder="Enter your surname" required [(ngModel)]="user.surname" name="surname" #surname="ngModel">
 							 <div *ngIf="signUpForm.submitted && !surname.valid" class="help-block">Surame is required</div>

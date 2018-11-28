@@ -1,13 +1,15 @@
 
 <title>Loop | Catalog</title>
-<div class="barra">
+<div class="card">
+  <div class="barra">
   <app-navbar></app-navbar>
+
   <br>
   <br>
   <br>
   <br>
 </div>
-<div class="peliculas" id="movies">
+<div class="peliculas">
   <div class="card bg-light mb-3">
     <div class="card-header">Movies</div>
     <div class="card-body">
@@ -15,11 +17,12 @@
     </div>
   </div>
 </div>
-<div class="Series" id="series">
+<div class="Series">
   <div class="card bg-light mb-3">
     <div class="card-header">Series</div>
     <div class="card-body">
       <app-catalog-series [items]="series"></app-catalog-series>
     </div>
   </div>
+</div>
 </div>
