@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 
 export class AuthService {
 
-  token: string;
+  private token: string;
   user: any;
   d: any;
   isLoggedIn: any;
@@ -50,7 +50,7 @@ export class AuthService {
   }
 
   getUserData(){
-    this.http.get(environment.url + 'home', {headers: new HttpHeaders().set('Authorization','Bearer ' + this.token)}).subscribe(data => {
+    this.http.get(environment.url + 'home', {headers: new HttpHeaders().set('Authorization','Bearer ' + this.getToken())}).subscribe(data => {
       this.user = data;
       this.cookieService.set('user',this.user);
     }, err => {
@@ -59,7 +59,7 @@ export class AuthService {
     });
   }
   getUserInfo(){
-    return this.http.get(environment.url + 'home', {headers: new HttpHeaders().set('Authorization','Bearer ' + this.token)});
+    return this.http.get(environment.url + 'home', {headers: new HttpHeaders().set('Authorization','Bearer ' + this.getToken())});
   }
 
   signUp(user: User){
@@ -82,7 +82,12 @@ export class AuthService {
   }
 
   getToken() {
-    return this.token;
+    if(this.cookieService.check('token')){
+      this.token = this.cookieService.get('token');
+      console.log("Token en cookie: " + this.token);
+      return this.token;
+    }
+    return null;
   }
 
   logout(){
