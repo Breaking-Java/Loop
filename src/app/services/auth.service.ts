@@ -30,6 +30,7 @@ export class AuthService {
       this.http.post(environment.url + 'login', credentials).subscribe(data => {
         this.d = data;
         this.token = this.d.token;
+        this.cookieService.set('token',this.token);
         this.isLoggedIn = true;
         this.getUserData();
         observer.next(true);
@@ -43,6 +44,7 @@ export class AuthService {
 
   facebookLogin(token){
     this.token = token;
+    this.cookieService.set('token',this.token);
     this.isLoggedIn = true;
     this.getUserData();
   }
@@ -50,7 +52,7 @@ export class AuthService {
   getUserData(){
     this.http.get(environment.url + 'home', {headers: new HttpHeaders().set('Authorization','Bearer ' + this.token)}).subscribe(data => {
       this.user = data;
-      this.cookieService.set('Auth',this.user);
+      this.cookieService.set('user',this.user);
     }, err => {
       this.user = null;
       alert("Error de respuesta del servidor:" + err);
@@ -63,21 +65,28 @@ export class AuthService {
 
   isAuthenticated(): boolean {
     //return this.isLoggedIn;
-    if(this.cookieService.check('Auth')){
-      this.user = this.cookieService.get('Auth');
+    if(this.cookieService.check('token')){
+      this.user = this.cookieService.get('user');
+      this.token = this.cookieService.get('token');
       return true;
-    } else {
-      return false;
     }
+    if (this.cookieService.check('AuthFB')) {
+      this.user = this.cookieService.get('user');
+      this.token = this.cookieService.get('token');
+      return true;
+    }
+    return false;
   }
 
   getToken() {
     return this.token;
   }
+
   logout(){
     this.isLoggedIn = false;
     this.cookieService.delete('AuthFB');
-    this.cookieService.delete('Auth');
+    this.cookieService.delete('user');
+    this.cookieService.delete('token');
     this.router.navigate(['login']);
   }
 }
