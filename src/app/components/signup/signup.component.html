@@ -5,7 +5,7 @@
 		<h1>Sign Up</h1>
 		<p>Register now!</p>
 		<hr>
-			<form name="signUpForm" (ngSubmit)="signUpForm.form.valid && login()" #signUpForm="ngForm" novalidate>
+			<form name="signUpForm" (ngSubmit)="signUpForm.form.valid" #signUpForm="ngForm" novalidate>
 				<div class="form-row">
 					<div class="form-group col-md-6">
 
@@ -35,9 +35,10 @@
 		 <div class="form-group" [ngClass]="{ 'has-error': signUpForm.submitted && !password.valid }">
 					<label for="password">Password:</label>
 					<input type="password" class="form-control" name="password" [(ngModel)]="user.password" #password="ngModel" required  />
+					<label>Must be at least 8 characters long</label>
 					 <div *ngIf="signUpForm.submitted && !password.valid" class="help-block">Password is required</div>
 				</div>
-			<button class="classic-btn" type="submit">Register</button>
+			<button class="classic-btn" type="submit" (click)="addCliente()">Register</button>
 		</form>
 	</div>
 </div>
