@@ -1,36 +1,36 @@
 <title>Loop | Detail</title>
 <app-navbar></app-navbar>
+
 <div class="card text-center" *ngIf="serie">
-    <div class="card-body">
+  <div class="card-body">
+<div class="centered">
     <h5 class="card-title">{{serie.Name}}</h5>
-    <div class="row">
-      <div class="col-6">
-        <img class="img-fluid img-thumbnail" [src]="serie.Poster" alt="">
-      </div>
-      <div class="col-6">
-        <br>
-    <span>{{serie.Year}}</span>
-    <br>
-    <br>
-        <p class="card-text">{{serie.Overview}}</p>
-         <div class="card-footer text-muted">
-    <i class="fas fa-star" *ngFor="let star of stars;"></i>
-  </div>
+  <div class="row">
+    <div class="col-5">
+      <img class="img-fluid img-thumbnail" [src]="serie.Poster" alt="">
+    </div>
+    <div class="col-7">
+      <span>{{serie.Year}}</span>
+      <p class="card-text">{{serie.Overview}}</p>
+      <div class="card-footer text-muted">
+          <i class="fas fa-star" *ngFor="let star of stars;"></i>
       </div>
     </div>
-  </div>
- 
+    </div>
 </div>
+
+  </div>
+</div>
+
 <div class="card text-center" *ngFor="let episode of episodes; let i = index">
   <div class="card-header">
-    <span>Episode {{i}}</span>
+    <h5>Episode {{i}}</h5>
   </div>
   <div class="card-body">
     <h5 class="card-title">{{episode.Name}}</h5>
     <p class="card-text">{{episode.Overview}}</p>
   </div>
   <div class="card-footer text-muted">
-    <a class="btn classic-btn" href="https://breakingjava.tk/{{episode.Path}}" target="_blank" rel="noopener noreferrer"><i class="fa fa-play">Play</i></a>
-
+    <a class="classic-btn" href="https://breakingjava.tk/{{episode.Path}}" target="_blank" rel="noopener noreferrer"><i class="fa fa-play">Play</i></a>
   </div>
 </div>
