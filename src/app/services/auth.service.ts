@@ -50,10 +50,14 @@ export class AuthService {
   getUserData(){
     this.http.get(environment.url + 'home', {headers: new HttpHeaders().set('Authorization','Bearer ' + this.token)}).subscribe(data => {
       this.user = data;
+      console.log(this.user);
     }, err => {
       this.user = null;
       alert("Error de respuesta del servidor:" + err);
     });
+  }
+  getUserInfo(){
+    return this.http.get(environment.url + 'home', {headers: new HttpHeaders().set('Authorization','Bearer ' + this.token)});
   }
 
   signUp(user: User){

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" *ngIf="user">
     <!-- Logo -->
     <a class="navbar-brand" href="#">
         <img src="assets/img/logo3.png" width="100" alt="">
@@ -25,12 +25,12 @@
         <ul class="navbar-nav ml-auto">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (click)="toggleDropwdown()">
-                Daniela
+                  {{user.user.name}}
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown" [ngClass]="{ 'show': dropDownOpen }">
                     <a class="dropdown-item" href="/user-settings">Account</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Sign Out</a>
+                    <a class="dropdown-item" (click)="logout()">Sign Out</a>
                 </div>
             </li>
         </ul>
