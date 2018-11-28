@@ -21,9 +21,10 @@ user;
     this.show = !this.show
   }
 
-  constructor(/*private route: ActivatedRoute*/ private userService: UserService,  private authService: AuthService) { }
+  constructor( private userService: UserService,  private authService: AuthService) { }
   ngOnInit(): void {
     this.getUser();
+
   }
 	// Activate Dropdown
 	dropDownOpen = false;
@@ -33,13 +34,6 @@ user;
 
 
 	getUser(): void {
-  /*  const id = +this.route.snapshot.paramMap.get('id');
-    this.userService.getUser(id)
-    .subscribe(data => {
-      this.user = data[0];
-      console.log(this.user);
-    });*/
-
     this.authService.getUserInfo().subscribe(data => {
       this.user = data;
       console.log(this.user);

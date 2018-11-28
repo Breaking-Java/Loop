@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Title} from "@angular/platform-browser";
+import { AuthService } from 'src/app/services/auth.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-user-settings',
@@ -7,7 +9,7 @@ import {Title} from "@angular/platform-browser";
   styleUrls: ['./user-settings.component.scss']
 })
 export class UserSettingsComponent implements OnInit {
-
+user;
 // Activate Toggler
 	navbarOpen = false;
 	toggleNavbar() {
@@ -31,12 +33,32 @@ export class UserSettingsComponent implements OnInit {
   openModel(){
     this.model = !this.model;
   }
-
-  constructor(private titleService:Title) {
+  constructor(private titleService:Title, private  userService: UserService,  private authService: AuthService ) {
   	this.titleService.setTitle("Loop | User Settings");
   }
 
   ngOnInit() {
   }
+  getUser(): void {
+    this.authService.getUserInfo().subscribe(data => {
+      this.user = data;
+      console.log(this.user);
+    }, err => {
+      this.user = null;
+      alert("Error de respuesta del servidor:" + err);
+    });
+  }
+
+  /*updateUser() {
+  this.userService.updateUser(this.user).subscribe(data => {
+    alert('User correctly edited');
+    //this.router.navigate(['user']);
+    console.log(data);
+  }, err => {
+    console.log(err);
+    alert('Error de conexion');
+    // Error de conexion
+  });
+}*/
 
 }
