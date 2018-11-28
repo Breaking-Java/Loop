@@ -1,1 +1,16 @@
+.card-body{
+	margin: auto;
+    width: 100%;
+}
 
+@media all and (min-width: 895px){
+  .card-body{
+    padding-left: 10px;
+  }
+}
+
+@media all and (min-width: 1024px){
+  .card-body{
+    padding-left: 85px;
+  }
+}
