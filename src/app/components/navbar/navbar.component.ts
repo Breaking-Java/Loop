@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+ show:boolean = false;
 
-  ngOnInit() {
+  toggleCollapse() {
+    this.show = !this.show
   }
-
+  ngOnInit(){}
 }
+
+

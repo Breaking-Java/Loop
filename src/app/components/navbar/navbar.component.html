@@ -4,7 +4,11 @@
 		<a class="navbar-brand" href="#">
 			<img src="assets/img/logo3.png" width="100" alt="">
 		</a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		
+		 <button class="navbar-toggler" type="button" data-toggle="collapse"
+           data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+           aria-expanded="false" aria-label="Toggle navigation"
+           (click)="toggleCollapse()">
 		<span class="navbar-toggler-icon"></span>
 		</button>
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -13,10 +17,10 @@
 					<a class="nav-link" routerLink="/catalog" routerLinkActive="active">Home</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" routerLink="/signup" routerLinkActive="active">Series</a>
+					<a class="nav-link">Series</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" routerLink="/crisis-center" routerLinkActive="active">Movies</a>
+					<a class="nav-link">Movies</a>
 				</li>
 			</ul>
 			<ul class="navbar-nav ml-auto">

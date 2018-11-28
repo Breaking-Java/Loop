@@ -11,6 +11,7 @@ import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.co
 import { PlaymediaComponent } from './components/playmedia/playmedia.component';
 import { SerieDetailComponent } from './components/serie-detail/serie-detail.component';
 
+
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full'},
   // User
