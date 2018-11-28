@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
 import {Title} from "@angular/platform-browser";
+import { CookieService } from 'ngx-cookie-service';
+
 
 @Component({
   selector: 'app-login',
@@ -11,10 +13,11 @@ import {Title} from "@angular/platform-browser";
 export class LoginComponent implements OnInit {
 
   model:any;
-  constructor(private router: Router, private auth:AuthService, private titleService:Title) {
+  cookieValue:String;
+  constructor(private router: Router, private auth:AuthService, private titleService:Title, private cookieService: CookieService) {
     this.titleService.setTitle("Loop | Login");
-
     this.model = {};
+    this.cookieValue = null;
   }
 
   onSubmit(){
@@ -22,7 +25,8 @@ export class LoginComponent implements OnInit {
   }
 
   facebook(){
-    
+    console.log("FACE");
+    window.location.href = 'https://breakingjava.tk/auth/facebook';
   }
 
   login() {
@@ -40,6 +44,11 @@ export class LoginComponent implements OnInit {
 }
 
   ngOnInit() {
+    if(this.cookieService.check('AuthFB')){
+      this.cookieValue = this.cookieService.get('AuthFB');
+      this.auth.facebookLogin(this.cookieValue);
+      this.router.navigate(['catalog']);
+    }
   }
 
 }

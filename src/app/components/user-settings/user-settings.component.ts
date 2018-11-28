@@ -8,6 +8,17 @@ import {Title} from "@angular/platform-browser";
 })
 export class UserSettingsComponent implements OnInit {
 
+// Activate Toggler
+	navbarOpen = false;
+	toggleNavbar() {
+		this.navbarOpen = !this.navbarOpen;
+	}
+
+	// Activate Dropdown
+	dropDownOpen = false;
+	toggleDropwdown() {
+		this.dropDownOpen = !this.dropDownOpen;
+	}
   constructor(private titleService:Title) {
   	this.titleService.setTitle("Loop | User Settings");
   }
