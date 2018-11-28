@@ -63,7 +63,7 @@ export class AuthService {
 
   isAuthenticated(): boolean {
     //return this.isLoggedIn;
-    if(this.isLoggedIn | this.cookieService.check('Auth')){
+    if(this.cookieService.check('Auth')){
       this.user = this.cookieService.get('Auth');
       return true;
     } else {
