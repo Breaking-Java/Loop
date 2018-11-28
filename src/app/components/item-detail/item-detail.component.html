@@ -1,25 +1,25 @@
 <title>Loop | Detail</title>
 <app-navbar></app-navbar>
-<div class="card text-center" *ngIf="movie">
-  <div class="card-body">
-    <h5 class="card-title">{{movie.Name}}</h5>
-    <div class="row">
-      <div class="col-6">
-        <img class="img-fluid img-thumbnail" [src]="movie.Poster" alt="">
-      </div>
-      <div class="col-6">
-        <br><br>
-        <span class="card-text">{{movie.Year}}</span>
-        <br><br>
-        <p class="card-text">{{movie.Overview}}</p>
-        <div class="card-footer text-muted">
-        <i class="fas fa-star" id="checked" *ngFor="let star of stars;"></i>
+<div class="content">
+  <div class="card text-center" *ngIf="movie">
+    <div class="card-body">
+      <div class="centered">
+      <div class="row">
+        <div class="col-5">
+          <img class="img-fluid img-thumbnail" [src]="movie.Poster" alt="">
         </div>
-        <br>
-         <a class="btn classic-btn" href="https://breakingjava.tk/{{movie.Path}}" target="_blank" rel="noopener noreferrer"> <i class="fa fa-play-circle-o" aria-hidden="true">Play</i></a>
+
+        <div class="col-7">
+          <h5 class="card-title">{{movie.Name}}</h5>
+          <span class="card-text">{{movie.Year}}</span>
+          <p class="card-text">{{movie.Overview}}</p>
+          <div class="card-footer text-muted">
+          <i class="fas fa-star" id="checked" *ngFor="let star of stars;"></i>
+          </div>
+          <a class="classic-btn" href="https://breakingjava.tk/{{movie.Path}}" target="_blank" rel="noopener noreferrer">Play</a>
+        </div>
       </div>
     </div>
-   
+    </div>
   </div>
-  
 </div>
