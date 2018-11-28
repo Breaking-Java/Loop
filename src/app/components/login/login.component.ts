@@ -49,6 +49,10 @@ export class LoginComponent implements OnInit {
       this.auth.facebookLogin(this.cookieValue);
       this.router.navigate(['catalog']);
     }
+    if(this.cookieService.check('password')){
+      alert("Your new password is: " + this.cookieService.get('password'));
+      this.cookieService.delete('password');
+    }
   }
 
 }
