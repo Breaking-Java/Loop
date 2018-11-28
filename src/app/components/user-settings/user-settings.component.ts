@@ -19,6 +19,19 @@ export class UserSettingsComponent implements OnInit {
 	toggleDropwdown() {
 		this.dropDownOpen = !this.dropDownOpen;
 	}
+
+
+  windows = [true, false, false];
+  toggleCard(index) {
+    this.windows = [false, false, false];
+    this.windows[index] = true;
+  }
+
+  model = false;
+  openModel(){
+    this.model = !this.model;
+  }
+
   constructor(private titleService:Title) {
   	this.titleService.setTitle("Loop | User Settings");
   }

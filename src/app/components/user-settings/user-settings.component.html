@@ -6,16 +6,16 @@
 		<div class="row">
 			<div class="col-md-4">
 				<div class="list-group" role="tablist">
-					<a class="list-group-item list-group-item-action active" data-toggle="list" href="#profile" role="tab">Your profile</a>
-					<a class="list-group-item list-group-item-action" data-toggle="list" href="#edit-profile" role="tab">Edit Profile</a>
-					<a class="list-group-item list-group-item-action" data-toggle="list" href="#edit-users" role="tab">Edit Users</a>
+					<a class="list-group-item list-group-item-action active" [ngClass]="{'active': windows[0]}" (click)="toggleCard(0)">Your profile</a>
+					<a class="list-group-item list-group-item-action" [ngClass]="{'active': windows[1]}" (click)="toggleCard(1)">Edit Profile</a>
+					<a class="list-group-item list-group-item-action" [ngClass]="{'active': windows[2]}" (click)="toggleCard(2)">Edit Users</a>
 				</div>
 			</div>
 			<!-- Content -->
 			<div class="col-md-8">
 				<div class="tab-content" id="nav-tabContent">
 					<!-- Profile -->
-					<div class="tab-pane fade active show" id="profile" role="tabpanel">
+					<div class="tab-pane fade active show" id="profile" role="tabpanel" *ngIf="windows[0]">
 						<div class="card">
 							<div class="card-body">
 								<div class="row">
@@ -28,15 +28,15 @@
 									<div class="col-md-12">
 										<form>
 											<div class="form-group row">
-												<label class="col-4 col-form-label">Name</label> 
+												<label class="col-4 col-form-label">Name</label>
 												<div class="col-8">
-													<label>Daniela Flores</label> 
+													<label>Daniela Flores</label>
 												</div>
 											</div>
 											<div class="form-group row">
-												<label class="col-4 col-form-label">E-mail</label> 
+												<label class="col-4 col-form-label">E-mail</label>
 												<div class="col-8">
-											  		<label>kenzie85@hotmail.com</label> 
+											  		<label>kenzie85@hotmail.com</label>
 												</div>
 											</div>
 											<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal">Delete account</button>
@@ -44,10 +44,10 @@
 									</div>
 								</div>
 							</div>
-						</div>  
+						</div>
 		            </div>
 		            <!-- Edit Profile -->
-		            <div class="tab-pane fade" id="edit-profile" role="tabpanel">
+		            <div class="tab-pane fade active show" id="edit-profile" role="tabpanel" *ngIf="windows[1]">
 						<div class="card">
 							<div class="card-body">
 								<div class="row">
@@ -60,13 +60,13 @@
 									<div class="col-md-12">
 										<form>
 											<div class="form-group row">
-												<label class="col-4 col-form-label">Name</label> 
+												<label class="col-4 col-form-label">Name</label>
 												<div class="col-8">
 													<input id="name" placeholder="Name" class="form-control" required="required" type="text">
 												</div>
 											</div>
 											<div class="form-group row">
-												<label class="col-4 col-form-label">Surname</label> 
+												<label class="col-4 col-form-label">Surname</label>
 												<div class="col-8">
 											  		<input id="surname" placeholder="Surname" class="form-control here" type="text">
 												</div>
@@ -79,11 +79,11 @@
 										</form>
 										<form>
 											<div class="form-group row">
-												<label for="newpass" class="col-4 col-form-label">New Password</label> 
+												<label for="newpass" class="col-4 col-form-label">New Password</label>
 												<div class="col-8">
 													<input type="password" id="newpass" placeholder="New Password" class="form-control here" required>
 												</div>
-											</div> 
+											</div>
 											<div class="form-group row">
 												<div class="offset-4 col-8">
 													<button type="submit" class="btn btn-primary">Update My Password</button>
@@ -93,10 +93,10 @@
 									</div>
 								</div>
 							</div>
-						</div>          
+						</div>
 					</div>
 					<!-- Edit Users -->
-					<div class="tab-pane fade" id="edit-users" role="tabpanel">
+					<div class="tab-pane fade active show" id="edit-users" role="tabpanel" *ngIf="windows[2]">
 						<div class="card">
 							<div class="card-body">
 								<div class="row">
@@ -119,42 +119,45 @@
 											<tr>
 												<th scope="row">Daniela Flores</th>
 												<td>kenzie85@hotmail.com</td>
-												<td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal">Delete account</button></td>
+												<td><button type="button" class="btn btn-danger" data-toggle="modal" (click)="openModel()">Delete account</button></td>
 											</tr>
 											<!-- Data 2 -->
 											<tr>
 												<th scope="row">Daniela Flores</th>
 												<td>kenzie85@hotmail.com</td>
-												<td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal">Delete account</button></td>
+												<td><button type="button" class="btn btn-danger" data-toggle="modal" (click)="openModel()">Delete account</button></td>
 											</tr>
 										</tbody>
 									</table>
 								</div>
 							</div>
-						</div>          
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+
 	<!-- Modal -->
-	<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
-		<div class="modal-dialog modal-dialog-centered" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title">Delete an Account</h5>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<div class="modal-body">
-					Are you sure you want to permanently delete the account?
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-					<button type="button" class="btn btn-primary">Yes, I'm sure</button>
+	<div class="modal fade show" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" style="display: block;" *ngIf="model">
+				<div class="modal-dialog modal-dialog-centered" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title">Delete an Account</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">×</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							Are you sure you want to permanently delete the account?
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+							<button type="button" class="btn btn-primary">Yes, I'm sure</button>
+						</div>
+					</div>
 				</div>
 			</div>
-		</div>
-	</div>
+
+
 </div>
