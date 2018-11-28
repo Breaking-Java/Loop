@@ -3,6 +3,8 @@ import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { User } from '../interfaces/user';
+import { CookieService } from 'ngx-cookie-service';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -14,7 +16,7 @@ export class AuthService {
   user: any;
   isLoggedIn: boolean;
 
-  constructor(public http: HttpClient) {
+  constructor(public http: HttpClient, private cookieService: CookieService, private router: Router) {
     this.token = null;
     this.isLoggedIn = false;
   }
@@ -64,6 +66,7 @@ export class AuthService {
   }
   logout(){
     this.isLoggedIn = false;
-    return this.http.post(environment.url + 'logout?access_token=' + this.token, {});
+    this.cookieService.delete('AuthFB');
+    this.router.navigate(['login']);
   }
 }
