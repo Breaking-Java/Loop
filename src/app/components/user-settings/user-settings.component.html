@@ -115,17 +115,9 @@
 											</tr>
 										</thead>
 										<tbody>
-											<!-- Data 1 -->
-											<tr>
-												<th scope="row">Daniela Flores</th>
-												<td>kenzie85@hotmail.com</td>
-												<td><button type="button" class="btn btn-danger" data-toggle="modal" (click)="openModel()">Delete account</button></td>
-											</tr>
-											<!-- Data 2 -->
-											<tr>
-												<th scope="row">Daniela Flores</th>
-												<td>kenzie85@hotmail.com</td>
-												<td><button type="button" class="btn btn-danger" data-toggle="modal" (click)="openModel()">Delete account</button></td>
+											<tr *ngFor="let user of users">
+												<th scope="row">{{user.local.name}}</th>
+												<td>{{user.local.email}}</td>
 											</tr>
 										</tbody>
 									</table>

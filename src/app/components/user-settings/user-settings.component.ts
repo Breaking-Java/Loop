@@ -85,8 +85,8 @@ user;
 
   updateUser(): void {
   this.userService.updateUser(this.userData.user._id, {name: this.userData.user.name, surname: this.userData.user.surname}).subscribe(data => {
-    alert('User correctly updated');
-    this.router.navigate(['user-settings']);
+    alert('User correctly updated, please login again');
+    this.auth.logout();
     console.log(data);
   }, err => {
     console.log(err);
@@ -97,8 +97,8 @@ user;
 
   updatePassword(){
     this.userService.updatePassword(this.userData.user._id, {password: this.newPass}).subscribe(data => {
-      alert('Password correctly updated');
-      this.router.navigate(['user-settings']);
+      alert('Password correctly updated, please login again');
+      this.auth.logout();
       console.log(data);
     }, err => {
       console.log(err);

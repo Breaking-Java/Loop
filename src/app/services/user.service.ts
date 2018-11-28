@@ -34,4 +34,8 @@ export class UserService {
     return this.http.put(environment.url + 'home/users/' + id + '/changePassword', pass, {headers: new HttpHeaders().set('Authorization','Bearer ' + this.auth.getToken())});
   }
 
+  forgotPassword(email){
+    return this.http.get(environment.url + 'UpdatePassword/' + email);
+  }
+
 }

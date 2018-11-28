@@ -4,16 +4,14 @@
 		<img class="img-fluid" src="assets/img/logo2.png">
 		<h1>Forgot Password?</h1>
 		<p>We'll e-mail instructions on how to reset your password.</p>
- 		 <form name="formr" (ngSubmit)="reset.formr.valid && resetPass()" #reset="ngForm" novalidate>
-				<div class="form-group" [ngClass]="{ 'has-error': reset.submitted && !email.valid }">
-				<input type="email" class="form-control" name="email" [(ngModel)]="model.email" #email="ngModel" placeholder="Enter your email address"required />
-				 <div *ngIf="reset.submitted && !email.valid" class="help-block">Email is required</div>
+ 		 <form novalidate>
+				<div class="form-group">
+				<input type="email" class="form-control" name="email" [(ngModel)]="email" [ngModelOptions]="{standalone: true}" placeholder="Enter your email address"required />
+				 <div  class="help-block">Email is required</div>
 				</div>
 				<br>
 
-				<button class="classic-btn" type="submit">Reset Password</button>
+				<button class="classic-btn" type="submit" (click)="forgotPass()">Reset Password</button>
  		 </form>
 	</div>
 </div>
-
-
