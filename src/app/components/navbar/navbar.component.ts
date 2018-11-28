@@ -39,7 +39,7 @@ user;
       this.user = data[0];
       console.log(this.user);
     });*/
-    console.log(this.authService.user);
+
     this.authService.getUserInfo().subscribe(data => {
       this.user = data;
       console.log(this.user);
@@ -47,6 +47,10 @@ user;
       this.user = null;
       alert("Error de respuesta del servidor:" + err);
     });
+  }
+
+  logout(): void {
+    this.authService.logout();
   }
 
 
