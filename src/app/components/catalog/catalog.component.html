@@ -2,7 +2,9 @@
 <div class="card bg-dark text-white" *ngFor="let item of items" routerLink="/detail/{{item.idVideo}}">
   <img class="card-img" [src]="item.Poster" alt="Card image">
   <div class="card-img-overlay">
-    <h5 class="card-title">{{item.Name}}</h5>
-    <p class="card-text">{{item.Rating}} <i class="fas fa-star"></i></p>
+  	<div class="middle">
+    	<h5 class="card-title text">{{item.Name}}</h5>
+    	<p class="card-text text">{{item.Rating}} <i class="fas fa-star"></i></p>
+    </div>
   </div>
 </div>
