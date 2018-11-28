@@ -22,6 +22,7 @@ import { SerieDetailComponent } from './components/serie-detail/serie-detail.com
 import { CatalogSeriesComponent } from './components/catalog-series/catalog-series.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UserSettingsComponent } from './components/user-settings/user-settings.component';
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { UserSettingsComponent } from './components/user-settings/user-settings.
   ],
   providers: [
     AuthService,
-    AuthGuard
+    AuthGuard,
+    CookieService
   ],
   bootstrap: [AppComponent]
 })
