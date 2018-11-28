@@ -5,26 +5,43 @@
 		<h1>Sign Up</h1>
 		<p>Register now!</p>
 		<hr>
-		<form (ngSubmit)="onSubmit()" #signupForm="ngForm">
-			<div class="form-row">
+			<form name="signUpForm" (ngSubmit)="signUpForm.form.valid && login()" #signUpForm="ngForm" novalidate>
+				<div class="form-row">
+					<div class="form-group col-md-6">
+					
+						<div class="form-group" [ngClass]="{ 'has-error': signUpForm.submitted && !name.valid }">
+							<label for="name">Name:</label>
+							<input type="text" class="form-control" id="input-name" placeholder="Enter your name" required [(ngModel)]="user.name" name="name" #name="ngModel">
+							 <div *ngIf="signUpForm.submitted && !name.valid" class="help-block">Name is required</div>
+						</div>
+					</div>
+				
+
 				<div class="form-group col-md-6">
-					<label>Name:</label>
-					<input type="text" class="form-control" id="input-name" placeholder="Enter your name" required [(ngModel)]="user.name" name="name" #name="ngModel">
+	
+						<div class="form-group" [ngClass]="{ 'has-error': signUpForm.submitted && !surname.valid }">
+							<label for="surname">Surname:</label>
+							<input type="text" class="form-control" id="input-surname" placeholder="Enter your surname" required [(ngModel)]="user.surname" name="surname" #surname="ngModel">
+							 <div *ngIf="signUpForm.submitted && !surname.valid" class="help-block">Surame is required</div>
+						</div>
+					</div>
 				</div>
-				<div class="form-group col-md-6">
-					<label>Surname:</label>
-					<input type="text" class="form-control" id="input-surname" placeholder="Enter your surname" required [(ngModel)]="user.surname" name="surname" #surname="ngModel">
+			
+		
+				<div class="form-group" [ngClass]="{ 'has-error': signUpForm.submitted && !email.valid }">
+					<label for="email">E-mail:</label>
+					<input type="email" class="form-control" name="email" [(ngModel)]="user.email" #email="ngModel" required  />
+					 <div *ngIf="signUpForm.submitted && !email.valid" class="help-block">Email is required</div>
 				</div>
-			</div>
-			<div class="form-group">
-				<label>E-mail:</label>
-				<input type="email" class="form-control" id="input-email" placeholder="Enter your e-mail address" required [(ngModel)]="user.email" name="email" #email="ngModel">
-			</div>
-			<div class="form-group">
-				<label>Password:</label>
-				<input type="password" class="form-control" id="input-password" placeholder="Password" required [(ngModel)]="user.password" name="password" #password="ngModel">
-			</div>
+		
+		 <div class="form-group" [ngClass]="{ 'has-error': signUpForm.submitted && !password.valid }">
+					<label for="password">Password:</label>
+					<input type="password" class="form-control" name="password" [(ngModel)]="user.password" #password="ngModel" required  />
+					 <div *ngIf="signUpForm.submitted && !password.valid" class="help-block">Password is required</div>
+				</div>
 			<button class="classic-btn" type="submit">Register</button>
 		</form>
 	</div>
 </div>
+
+	
