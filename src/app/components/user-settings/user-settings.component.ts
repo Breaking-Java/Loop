@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Title} from "@angular/platform-browser";
+import { AuthService } from 'src/app/services/auth.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-user-settings',
@@ -32,11 +34,25 @@ export class UserSettingsComponent implements OnInit {
     this.model = !this.model;
   }
 
-  constructor(private titleService:Title) {
+  userData;
+
+  constructor(private titleService:Title, private auth:AuthService, private userService:UserService) {
   	this.titleService.setTitle("Loop | User Settings");
   }
 
   ngOnInit() {
+    this.auth.getUserInfo().subscribe(data => {
+      console.log(data);
+      this.userData = data;
+    }, err => {
+      alert("Error de respuesta del servidor:" + err);
+    });
+    //this.
+  }
+
+  selfDestroy(){
+    this.userService.deleteUser(this.userData.user._id);
+    //this.auth.logout();
   }
 
 }
