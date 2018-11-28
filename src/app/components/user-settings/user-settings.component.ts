@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Title} from "@angular/platform-browser";
 import { AuthService } from 'src/app/services/auth.service';
 import { UserService } from 'src/app/services/user.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-user-settings',
@@ -33,7 +34,7 @@ user;
   openModel(){
     this.model = !this.model;
   }
-  constructor(private titleService:Title, private  userService: UserService,  private authService: AuthService ) {
+  constructor(private titleService:Title, private  userService: UserService,  private authService: AuthService, private router: Router ) {
   	this.titleService.setTitle("Loop | User Settings");
   }
 
@@ -49,16 +50,16 @@ user;
     });
   }
 
-  /*updateUser() {
+  updateUser(): void {
   this.userService.updateUser(this.user).subscribe(data => {
     alert('User correctly edited');
-    //this.router.navigate(['user']);
+    this.router.navigate(['user-settings']);
     console.log(data);
   }, err => {
     console.log(err);
     alert('Error de conexion');
     // Error de conexion
   });
-}*/
+}
 
 }

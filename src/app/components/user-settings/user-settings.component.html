@@ -30,13 +30,13 @@
 											<div class="form-group row">
 												<label class="col-4 col-form-label">Name</label>
 												<div class="col-8">
-													<label>Daniela Flores</label>
+													<label>{{user.user.name}}</label>
 												</div>
 											</div>
 											<div class="form-group row">
 												<label class="col-4 col-form-label">E-mail</label>
 												<div class="col-8">
-											  		<label>kenzie85@hotmail.com</label>
+											  		<label>{{user.user.email}}</label>
 												</div>
 											</div>
 											<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal">Delete account</button>
@@ -73,7 +73,7 @@
 											</div>
 											<div class="form-group row">
 												<div class="offset-4 col-8">
-													<button name="submit" type="submit" class="btn btn-primary">Update My Profile</button>
+													<button name="submit" type="submit" class="btn btn-primary" (click)="updateUser">Update My Profile</button>
 												</div>
 											</div>
 										</form>
