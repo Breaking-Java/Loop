@@ -4,8 +4,9 @@ import { environment } from 'src/environments/environment';
 import { AuthService } from './auth.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
+
 export class ContentService {
 
   headers

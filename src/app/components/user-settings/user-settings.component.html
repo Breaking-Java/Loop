@@ -1,3 +1,160 @@
-<p>
-  user-settings works!
-</p>
+<app-navbar><app-navbar>
+<!-- User Profile -->
+<div class="vertical-center" >
+	<div class="container">
+		<!-- Menu -->
+		<div class="row">
+			<div class="col-md-4">
+				<div class="list-group" role="tablist">
+					<a class="list-group-item list-group-item-action active" data-toggle="list" href="#profile" role="tab">Your profile</a>
+					<a class="list-group-item list-group-item-action" data-toggle="list" href="#edit-profile" role="tab">Edit Profile</a>
+					<a class="list-group-item list-group-item-action" data-toggle="list" href="#edit-users" role="tab">Edit Users</a>
+				</div>
+			</div>
+			<!-- Content -->
+			<div class="col-md-8">
+				<div class="tab-content" id="nav-tabContent">
+					<!-- Profile -->
+					<div class="tab-pane fade active show" id="profile" role="tabpanel">
+						<div class="card">
+							<div class="card-body">
+								<div class="row">
+									<div class="col-md-12">
+							    		<h4>Your Profile</h4>
+							    		<hr>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12">
+										<form>
+											<div class="form-group row">
+												<label class="col-4 col-form-label">Name</label> 
+												<div class="col-8">
+													<label>Daniela Flores</label> 
+												</div>
+											</div>
+											<div class="form-group row">
+												<label class="col-4 col-form-label">E-mail</label> 
+												<div class="col-8">
+											  		<label>kenzie85@hotmail.com</label> 
+												</div>
+											</div>
+											<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal">Delete account</button>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>  
+		            </div>
+		            <!-- Edit Profile -->
+		            <div class="tab-pane fade" id="edit-profile" role="tabpanel">
+						<div class="card">
+							<div class="card-body">
+								<div class="row">
+									<div class="col-md-12">
+							    	<h4>Edit Your Profile</h4>
+							    	<hr>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12">
+										<form>
+											<div class="form-group row">
+												<label class="col-4 col-form-label">Name</label> 
+												<div class="col-8">
+													<input id="name" placeholder="Name" class="form-control" required="required" type="text">
+												</div>
+											</div>
+											<div class="form-group row">
+												<label class="col-4 col-form-label">Surname</label> 
+												<div class="col-8">
+											  		<input id="surname" placeholder="Surname" class="form-control here" type="text">
+												</div>
+											</div>
+											<div class="form-group row">
+												<div class="offset-4 col-8">
+													<button name="submit" type="submit" class="btn btn-primary">Update My Profile</button>
+												</div>
+											</div>
+										</form>
+										<form>
+											<div class="form-group row">
+												<label for="newpass" class="col-4 col-form-label">New Password</label> 
+												<div class="col-8">
+													<input type="password" id="newpass" placeholder="New Password" class="form-control here" required>
+												</div>
+											</div> 
+											<div class="form-group row">
+												<div class="offset-4 col-8">
+													<button type="submit" class="btn btn-primary">Update My Password</button>
+												</div>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>          
+					</div>
+					<!-- Edit Users -->
+					<div class="tab-pane fade" id="edit-users" role="tabpanel">
+						<div class="card">
+							<div class="card-body">
+								<div class="row">
+									<div class="col-md-12">
+							    	<h4>Edit Users</h4>
+									</div>
+								</div>
+								<!-- Table -->
+								<div class="table-responsive-xl">
+									<table class="table">
+										<thead>
+											<tr>
+												<th scope="col">Name</th>
+												<th scope="col">E-mail</th>
+												<th scope="col">Option</th>
+											</tr>
+										</thead>
+										<tbody>
+											<!-- Data 1 -->
+											<tr>
+												<th scope="row">Daniela Flores</th>
+												<td>kenzie85@hotmail.com</td>
+												<td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal">Delete account</button></td>
+											</tr>
+											<!-- Data 2 -->
+											<tr>
+												<th scope="row">Daniela Flores</th>
+												<td>kenzie85@hotmail.com</td>
+												<td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal">Delete account</button></td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>          
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Modal -->
+	<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Delete an Account</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					Are you sure you want to permanently delete the account?
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+					<button type="button" class="btn btn-primary">Yes, I'm sure</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
