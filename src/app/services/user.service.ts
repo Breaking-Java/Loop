@@ -13,7 +13,7 @@ export class UserService {
   constructor(public http: HttpClient, private auth:AuthService) {
     this.headers = new HttpHeaders();
   }
-  
+
   getAllUsers(){
     return this.http.get(environment.url + 'home/users', {headers: new HttpHeaders().set('Authorization','Bearer ' + this.auth.getToken())});
   }
@@ -22,12 +22,16 @@ export class UserService {
     return this.http.get(environment.url + 'home/users/' + id, {headers: new HttpHeaders().set('Authorization','Bearer ' + this.auth.getToken())});
   }
 
-  updateUser(id) {
-    return this.http.patch(environment.url + 'home/users/' + id, {headers: new HttpHeaders().set('Authorization','Bearer ' + this.auth.getToken())});
+  updateUser(id, user) {
+    return this.http.put(environment.url + 'home/users/' + id, user, {headers: new HttpHeaders().set('Authorization','Bearer ' + this.auth.getToken())});
   }
 
   deleteUser(id) {
     return this.http.delete(environment.url + 'home/users/' + id, {headers: new HttpHeaders().set('Authorization','Bearer ' + this.auth.getToken())});
+  }
+
+  updatePassword(id, pass){
+    return this.http.put(environment.url + 'home/users/' + id + '/changePassword', pass, {headers: new HttpHeaders().set('Authorization','Bearer ' + this.auth.getToken())});
   }
 
 }

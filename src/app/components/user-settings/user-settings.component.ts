@@ -3,6 +3,7 @@ import {Title} from "@angular/platform-browser";
 import { AuthService } from 'src/app/services/auth.service';
 import { UserService } from 'src/app/services/user.service';
 import {Router} from '@angular/router';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-user-settings',
@@ -36,6 +37,9 @@ user;
   }
 
   userData;
+  newPass;
+  users;
+  admin;
 
   constructor(private titleService:Title, private auth:AuthService, private userService:UserService, private router: Router ) {
   	this.titleService.setTitle("Loop | User Settings");
@@ -48,7 +52,16 @@ user;
     }, err => {
       alert("Error de respuesta del servidor:" + err);
     });
-    //this.
+    this.userService.getAllUsers().subscribe(data => {
+      this.users = data;
+      console.log(this.users);
+      this.admin = true;
+    }, _err => {
+      this.admin = false;
+      //console.log(err);
+      //alert('Error de conexion');
+      // Error de conexion
+    });
   }
 
   selfDestroy(){
@@ -71,8 +84,8 @@ user;
   }
 
   updateUser(): void {
-  this.userService.updateUser(this.userData.user).subscribe(data => {
-    alert('User correctly edited');
+  this.userService.updateUser(this.userData.user._id, {name: this.userData.user.name, surname: this.userData.user.surname}).subscribe(data => {
+    alert('User correctly updated');
     this.router.navigate(['user-settings']);
     console.log(data);
   }, err => {
@@ -80,6 +93,18 @@ user;
     alert('Error de conexion');
     // Error de conexion
   });
-}
+  }
+
+  updatePassword(){
+    this.userService.updatePassword(this.userData.user._id, {password: this.newPass}).subscribe(data => {
+      alert('Password correctly updated');
+      this.router.navigate(['user-settings']);
+      console.log(data);
+    }, err => {
+      console.log(err);
+      alert('Error de conexion');
+      // Error de conexion
+    });
+  }
 
 }
