@@ -8,7 +8,7 @@
 				<div class="list-group" role="tablist">
 					<a class="list-group-item list-group-item-action active" [ngClass]="{'active': windows[0]}" (click)="toggleCard(0)">Your profile</a>
 					<a class="list-group-item list-group-item-action" [ngClass]="{'active': windows[1]}" (click)="toggleCard(1)">Edit Profile</a>
-					<a class="list-group-item list-group-item-action" [ngClass]="{'active': windows[2]}" (click)="toggleCard(2)" *ngIf="admin">Edit Users</a>
+					<a class="list-group-item list-group-item-action" [ngClass]="{'active': windows[2]}" (click)="toggleCard(2)" *ngIf="admin">Show Users</a>
 				</div>
 			</div>
 			<!-- Content -->
@@ -101,7 +101,7 @@
 							<div class="card-body">
 								<div class="row">
 									<div class="col-md-12">
-							    	<h4>Edit Users</h4>
+							    	<h4>See Users</h4>
 									</div>
 								</div>
 								<!-- Table -->
@@ -111,7 +111,6 @@
 											<tr>
 												<th scope="col">Name</th>
 												<th scope="col">E-mail</th>
-												<th scope="col">Option</th>
 											</tr>
 										</thead>
 										<tbody>
