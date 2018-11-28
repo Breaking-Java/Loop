@@ -15,7 +15,7 @@ export class AuthService {
   token: string;
   user: any;
   d: any;
-  isLoggedIn: boolean;
+  isLoggedIn: any;
 
   constructor(public http: HttpClient, private cookieService: CookieService, private router: Router) {
     this.token = null;
@@ -50,7 +50,7 @@ export class AuthService {
   getUserData(){
     this.http.get(environment.url + 'home', {headers: new HttpHeaders().set('Authorization','Bearer ' + this.token)}).subscribe(data => {
       this.user = data;
-      console.log(this.user);
+      this.cookieService.set('Auth',this.user);
     }, err => {
       this.user = null;
       alert("Error de respuesta del servidor:" + err);
@@ -65,14 +65,22 @@ export class AuthService {
   }
 
   isAuthenticated(): boolean {
-    return this.isLoggedIn;
+    //return this.isLoggedIn;
+    if(this.isLoggedIn | this.cookieService.check('Auth')){
+      this.user = this.cookieService.get('Auth');
+      return true;
+    } else {
+      return false;
+    }
   }
+
   getToken() {
     return this.token;
   }
   logout(){
     this.isLoggedIn = false;
     this.cookieService.delete('AuthFB');
+    this.cookieService.delete('Auth');
     this.router.navigate(['login']);
   }
 }
