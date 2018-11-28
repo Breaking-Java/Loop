@@ -58,6 +58,7 @@ export class AuthService {
       alert("Error de respuesta del servidor:" + err);
     });
   }
+  
   getUserInfo(){
     return this.http.get(environment.url + 'home', {headers: new HttpHeaders().set('Authorization','Bearer ' + this.getToken())});
   }
